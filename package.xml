@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+  <name>ypspur</name>
+  <version>0.0.1</version>
+  <description>The ypspur bridge package on ROS</description>
+
+  <maintainer email="d.maekawa@rapyuta-robotics.com">Daiki Maekawa</maintainer>
+  <license>MIT</license>
+  <url type="website">https://openspur.org/redmine/projects/ypspur</url>
+  
+  <run_depend>catkin</run_depend>
+  <build_depend>git</build_depend>
+  <buildtool_depend>automake</buildtool_depend>
+  <buildtool_depend>cmake</buildtool_depend>
+  <buildtool_depend>libtool</buildtool_depend>
+
+  <export>
+    <build_type>cmake</build_type>
+  </export>
+</package>
