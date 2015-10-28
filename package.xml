@@ -2,9 +2,11 @@
 <package>
   <name>ypspur</name>
   <version>0.0.1</version>
-  <description>The ypspur bridge package on ROS</description>
+  <description>YamabicoProject-Spur (YP-Spur) is A is developed with Intelligent Robot Laboratory based on SH-Spur.</description>
 
   <maintainer email="d.maekawa@rapyuta-robotics.com">Daiki Maekawa</maintainer>
+  <author email="etake@users.sourceforge.jp">Eijiro Takeuchi</author>
+
   <license>MIT</license>
   <url type="website">https://openspur.org/redmine/projects/ypspur</url>
   
