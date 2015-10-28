@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>ypspur</name>
-  <version>0.0.1</version>
+  <version>0.1.0</version>
   <description>YamabicoProject-Spur (YP-Spur) is A is developed with Intelligent Robot Laboratory based on SH-Spur.</description>
 
   <maintainer email="d.maekawa@rapyuta-robotics.com">Daiki Maekawa</maintainer>
