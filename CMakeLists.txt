@@ -13,7 +13,8 @@ ExternalProject_Add(${PROJECT_NAME}
     #GIT_REPOSITORY https://github.com/DaikiMaekawa/ypspur
     CONFIGURE_COMMAND <SOURCE_DIR>/configure --prefix=${CMAKE_INSTALL_PREFIX}
     BUILD_COMMAND $(MAKE)
-    INSTALL_COMMAND echo "Install ypspur libs"
+    INSTALL_DIR ${CATKIN_INSTALL_PREFIX}
+    CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CATKIN_INSTALL_PREFIX}
 )
 
 ExternalProject_Get_Property(${PROJECT_NAME} binary_dir)
