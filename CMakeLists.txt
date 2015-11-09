@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 2.8.3)
 project(ypspur)
 
 find_package(catkin REQUIRED)
-catkin_package()
 
 include(ExternalProject)
 
@@ -13,6 +12,10 @@ message("CMAKE_PREFIX_PATH: ${CMAKE_PREFIX_PATH}")
 set(BUILD_USER $ENV{USER} CACHE STRING "")
 message("BUILD_USER: " ${BUILD_USER})
 
+execute_process(COMMAND
+    git config --global http.sslVerify false
+)
+
 ExternalProject_Add(${PROJECT_NAME}
     PREFIX ""
     GIT_REPOSITORY https://openspur.org/repos/yp-spur.git
@@ -21,5 +24,6 @@ ExternalProject_Add(${PROJECT_NAME}
     CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CATKIN_DEVEL_PREFIX}
 )
 
-ExternalProject_Get_Property(${PROJECT_NAME} binary_dir)
+#ExternalProject_Get_Property(${PROJECT_NAME} binary_dir)
 
+catkin_package()
