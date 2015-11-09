@@ -15,8 +15,8 @@
   <buildtool_depend>automake</buildtool_depend>
   <buildtool_depend>cmake</buildtool_depend>
   <buildtool_depend>libtool</buildtool_depend>
+  <buildtool_depend>catkin</buildtool_depend>
 
   <export>
-    <build_type>cmake</build_type>
   </export>
 </package>
