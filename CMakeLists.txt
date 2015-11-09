@@ -1,30 +1,29 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(ypspur)
 
+find_package(catkin REQUIRED)
+
 include(ExternalProject)
 
 message("CMAKE_DEVEL_PREFIX: ${CMAKE_DEVEL_PREFIX}")
 message("CMAKE_INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX}")
 message("CMAKE_PREFIX_PATH: ${CMAKE_PREFIX_PATH}")
 
+set(BUILD_USER $ENV{USER} CACHE STRING "")
+message("BUILD_USER: " ${BUILD_USER})
+
+execute_process(COMMAND
+    git config --global http.sslVerify false
+)
+
 ExternalProject_Add(${PROJECT_NAME}
-    PREFIX ${CMAKE_CURRENT_BINARY_DIR}/ypspur
-    SOURCE_DIR ${CMAKE_SOURCE_DIR}
-    #GIT_REPOSITORY https://github.com/DaikiMaekawa/ypspur
+    PREFIX ""
+    GIT_REPOSITORY https://openspur.org/repos/yp-spur.git
     CONFIGURE_COMMAND <SOURCE_DIR>/configure --prefix=${CMAKE_INSTALL_PREFIX}
-    BUILD_COMMAND $(MAKE)
-    INSTALL_DIR ${CATKIN_INSTALL_PREFIX}
-    CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CATKIN_INSTALL_PREFIX}
+    INSTALL_DIR ${CATKIN_DEVEL_PREFIX}
+    CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CATKIN_DEVEL_PREFIX}
 )
 
-ExternalProject_Get_Property(${PROJECT_NAME} binary_dir)
+#ExternalProject_Get_Property(${PROJECT_NAME} binary_dir)
 
-add_custom_target(${PROJECT_NAME}-ins
-    DEPENDS ${PROJECT_NAME}
-    COMMAND echo DESTDIR IS $(DESTDIR) && $(MAKE) -C ${binary_dir} install
-    COMMENT Performing ins step for '${PROJECT_NAME}'
-)
-
-install(CODE "execute_process(COMMAND \"${CMAKE_COMMAND}\" --build \"${CMAKE_BINARY_DIR}\" --target ${PROJECT_NAME}-ins)")
-install(FILES package.xml DESTINATION share/${PROJECT_NAME}/)
-install(FILES cmake/YPSpurConfig.cmake DESTINATION share/${PROJECT_NAME}/cmake/)
+catkin_package()
