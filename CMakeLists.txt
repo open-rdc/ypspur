@@ -32,9 +32,9 @@ ExternalProject_Add(${PROJECT_NAME}
     GIT_REPOSITORY https://openspur.org/repos/yp-spur.git
     SOURCE_DIR ${CATKIN_SOURCE_DIR}
     CONFIGURE_COMMAND ${SU} <SOURCE_DIR>/configure --prefix=${CMAKE_INSTALL_PREFIX}
-    BUILD_COMMAND ${MAKE}
+    BUILD_COMMAND ${SU} make install
     INSTALL_DIR ${CATKIN_DEVEL_PREFIX}
-    #CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CATKIN_DEVEL_PREFIX}
+    CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CATKIN_DEVEL_PREFIX}
 )
 
 #ExternalProject_Get_Property(${PROJECT_NAME} binary_dir)
