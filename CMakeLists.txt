@@ -22,12 +22,14 @@ execute_process(COMMAND
 )
 
 ExternalProject_Add(${PROJECT_NAME}
-    PREFIX ""
+    #PREFIX 
     GIT_REPOSITORY https://openspur.org/repos/yp-spur.git
     CONFIGURE_COMMAND ${SU} ${CMAKE_COMMAND} <SOURCE_DIR>/configure --prefix=${CMAKE_INSTALL_PREFIX}
     BUILD_COMMAND ${SU} make
     INSTALL_DIR ${CATKIN_DEVEL_PREFIX}
-    CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CATKIN_DEVEL_PREFIX}
+    SOURCE_DIR ${CMAKE_SOURCE_DIR}/subproject
+    BINARY_DIR ${CMAKE_BINARY_DIR}/subproject
+    #CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CATKIN_DEVEL_PREFIX}
 )
 
 #ExternalProject_Get_Property(${PROJECT_NAME} binary_dir)
