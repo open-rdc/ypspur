@@ -1,2 +1,2 @@
 #! /bin/sh
-U=$1; shift; exec su -c "$*" $U
+U=$1; shift; exec sudo -n su -c "$*" $U
