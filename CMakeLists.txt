@@ -12,6 +12,11 @@ message("CMAKE_PREFIX_PATH: ${CMAKE_PREFIX_PATH}")
 set(BUILD_USER $ENV{USER} CACHE STRING "")
 message("BUILD_USER: " ${BUILD_USER})
 
+unset(SU)
+if(BUILD_USER)
+    set(SU ${CMAKE_SOURCE_DIR}/su ${BUILD_USER})
+endif()
+
 execute_process(COMMAND
     git config --global http.sslVerify false
 )
@@ -19,7 +24,8 @@ execute_process(COMMAND
 ExternalProject_Add(${PROJECT_NAME}
     PREFIX ""
     GIT_REPOSITORY https://openspur.org/repos/yp-spur.git
-    CONFIGURE_COMMAND <SOURCE_DIR>/configure --prefix=${CMAKE_INSTALL_PREFIX}
+    CONFIGURE_COMMAND ${SU} ${CMAKE_COMMAND} <SOURCE_DIR>/configure --prefix=${CMAKE_INSTALL_PREFIX}
+    BUILD_COMMAND ${SU} make
     INSTALL_DIR ${CATKIN_DEVEL_PREFIX}
     CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CATKIN_DEVEL_PREFIX}
 )
