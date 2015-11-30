@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>ypspur</name>
-  <version>0.2.2</version>
+  <version>0.2.0</version>
   <description>YamabicoProject-Spur (YP-Spur) is A is developed with Intelligent Robot Laboratory based on SH-Spur.</description>
 
   <maintainer email="d.maekawa@rapyuta-robotics.com">Daiki Maekawa</maintainer>
@@ -10,15 +10,13 @@
   <license>MIT</license>
   <url type="website">https://openspur.org/redmine/projects/ypspur</url>
   
-  <buildtool_depend>git</buildtool_depend>
+  <run_depend>catkin</run_depend>
+  <build_depend>git</build_depend>
   <buildtool_depend>automake</buildtool_depend>
   <buildtool_depend>cmake</buildtool_depend>
   <buildtool_depend>libtool</buildtool_depend>
-  <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>git</build_depend>
-  <build_depend>ca-certificates</build_depend>
-  <build_depend>openssl</build_depend>
 
   <export>
+    <build_type>cmake</build_type>
   </export>
 </package>
