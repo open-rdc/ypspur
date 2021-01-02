@@ -27,4 +27,4 @@ add_custom_target(${PROJECT_NAME}-ins
 
 install(CODE "execute_process(COMMAND \"${CMAKE_COMMAND}\" --build \"${CMAKE_BINARY_DIR}\" --target ${PROJECT_NAME}-ins)")
 install(FILES package.xml DESTINATION share/${PROJECT_NAME}/)
-install(FILES cmake/YPSpurConfig.cmake DESTINATION share/${PROJECT_NAME}/cmake/)
+install(FILES cmake/ypspurConfig.cmake DESTINATION share/${PROJECT_NAME}/cmake/)
